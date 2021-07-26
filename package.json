@@ -10,6 +10,7 @@
     "ng": "ng",
     "start": "ng serve",
     "storybook": "nx run eternal:storybook",
+    "storybook:build": "nx run eternal:storybook:build",
     "build": "env-cmd ng build",
     "test": "jest",
     "test:watch": "jest --watch",

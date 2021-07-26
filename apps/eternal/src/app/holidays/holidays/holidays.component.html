@@ -4,10 +4,10 @@
     [ngClass]="{ 'sold-out': holiday.soldOut }"
     class="my-4 mx-4"
   >
-    <mat-card-header>
-      <mat-card-title>{{ holiday.title }}</mat-card-title>
-      <mat-card-subtitle class="h-8">{{ holiday.teaser }}</mat-card-subtitle>
-    </mat-card-header>
+    <p class="truncate font-medium text-xl">{{ holiday.title }}</p>
+    <p class="h-10 overflow-clip overflow-hidden my-2 text-sm text-gray-500">
+      {{ holiday.teaser }}
+    </p>
     <figure>
       <img [alt]="holiday.title" [src]="holiday.imageUrl" class="max-w-none" />
       <div class="badge-overlay">
@@ -22,7 +22,6 @@
       <button (click)="getBrochure(holiday)" color="primary" mat-raised-button>
         Get a Brochure
       </button>
-      <button (click)="showMore(holiday)" mat-raised-button>Show More</button>
     </mat-card-actions>
   </mat-card>
 </div>
