@@ -1,55 +1,28 @@
-import { HttpClient } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { RouterTestingModule } from '@angular/router/testing';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
-import { Meta } from '@storybook/angular';
-import { of } from 'rxjs';
-import { HolidaysEffects } from '../+state/holidays.effects';
-import { holidaysReducer } from '../+state/holidays.reducer';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { Holiday } from '../holiday';
-import { HolidaysComponent } from './holidays.component';
+import { HolidayCardComponent } from '../holiday-card/holiday-card.component';
+
+export default {
+  title: 'Eternal/HolidayCard',
+  component: HolidayCardComponent,
+  decorators: [moduleMetadata({ imports: [MatButtonModule, MatCardModule] })],
+  argTypes: { holiday: { name: 'Urlaub', description: 'Urlaubsdaten' } }
+} as Meta;
 
 const defaultHoliday: Holiday = {
   id: 1,
   title: 'Vienna / Wien',
-  teaser: 'Dive into the capital of the Habsburg empire',
+  teaser: 'Dive nto the capital of the Habsburg empire',
   imageUrl: '/assets/vienna.jpg',
   description:
     'With a population of almost 2 million, Vienna is the second largest German-speaking city and breathes history in every corner.'
 };
 
-const defaultModuleConfig = (holiday: Partial<Holiday> = {}) => ({
-  imports: [
-    MatButtonModule,
-    MatCardModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    RouterTestingModule,
-    StoreModule.forRoot({ holiday: holidaysReducer }),
-    EffectsModule.forRoot([HolidaysEffects])
-  ],
-  providers: [
-    {
-      provide: HttpClient,
-      useValue: {
-        get: () => of<Holiday[]>([{ ...defaultHoliday, ...holiday }])
-      }
-    }
-  ]
-});
-
 const createStory = (holiday: Partial<Holiday> = {}) => ({
-  moduleMetadata: defaultModuleConfig(holiday)
+  props: { holiday: { ...defaultHoliday, ...holiday } }
 });
-
-export default {
-  title: 'Eternal/HolidayCard',
-  component: HolidaysComponent
-} as Meta;
 
 export const Default = () => createStory();
 

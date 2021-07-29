@@ -1,0 +1,21 @@
+<mat-card *ngIf="holiday" [ngClass]="{ 'sold-out': holiday.soldOut }" class="my-4 mx-4">
+  <p class="truncate font-medium text-xl">{{ holiday.title }}</p>
+  <p class="h-10 overflow-clip overflow-hidden my-2 text-sm text-gray-500">
+    {{ holiday.teaser }}
+  </p>
+  <figure>
+    <img [alt]="holiday.title" [src]="holiday.imageUrl" class="max-w-none" />
+    <div class="badge-overlay">
+      <span *ngIf="holiday.onSale" class="top-left badge">On Sale</span>
+      <span *ngIf="holiday.soldOut" class="middle-full badge">Sold out</span>
+    </div>
+  </figure>
+  <mat-card-content class="h-16 overflow-clip overflow-hidden">
+    {{ holiday.description }}
+  </mat-card-content>
+  <mat-card-actions class="justify-evenly">
+    <button (click)="brochureClick.emit(holiday)" color="primary" mat-raised-button>
+      Get a Brochure
+    </button>
+  </mat-card-actions>
+</mat-card>

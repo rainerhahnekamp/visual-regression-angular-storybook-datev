@@ -14,10 +14,11 @@ import { SharedModule } from '../shared/shared.module';
 import { HolidaysEffects } from './+state/holidays.effects';
 import { holidaysFeatureKey, holidaysReducer } from './+state/holidays.reducer';
 import { AddressGetterComponent } from './address-getter/address-getter.component';
+import { HolidayCardComponent } from './holiday-card/holiday-card.component';
 import { HolidaysComponent } from './holidays/holidays.component';
 
 @NgModule({
-  declarations: [HolidaysComponent, AddressGetterComponent],
+  declarations: [HolidayCardComponent, HolidaysComponent, AddressGetterComponent],
   imports: [
     CommonModule,
     MatButtonModule,
