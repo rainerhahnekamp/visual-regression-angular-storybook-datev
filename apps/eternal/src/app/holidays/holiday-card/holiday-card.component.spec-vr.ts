@@ -9,8 +9,9 @@ describe('Holiday Card Component', () => {
     'on-sale',
     'sale-and-sold'
   ])(`should visually test %s via Storybook`, async (story) => {
+    await page.setViewport({ width: 350, height: 450 });
     await page.goto(`http://localhost:8080/iframe.html?id=eternal-holidaycard--${story}`, {
-      waitUntil: 'networkidle2'
+      waitUntil: 'networkidle0'
     });
     const screenshot = await page.screenshot();
     expect(screenshot).toMatchImageSnapshot();
