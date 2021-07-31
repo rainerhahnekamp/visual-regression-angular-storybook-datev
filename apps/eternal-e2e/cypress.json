@@ -11,6 +11,11 @@
   "screenshotsFolder": "../../dist/cypress/apps/eternal-e2e/screenshots",
   "chromeWebSecurity": false,
   "env": {
-    "apiUrl": "https://api.eternal-holidays.net"
+    "apiUrl": "https://api.eternal-holidays.net",
+    "cypress-plugin-snapshots": {
+      "imageConfig": {
+        "threshold": 0
+      }
+    }
   }
 }

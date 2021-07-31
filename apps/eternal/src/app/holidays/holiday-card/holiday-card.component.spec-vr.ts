@@ -1,13 +1,13 @@
-describe.skip('Holiday Card Component', () => {
+describe('Holiday Card Component', () => {
   it.each<string>([
     'default',
     'minimal',
     'overflown',
-    'soldOut',
+    'sold-out',
     'empty',
-    'tinyImage',
-    'onSale',
-    'saleAndSold'
+    'tiny-image',
+    'on-sale',
+    'sale-and-sold'
   ])(`should visually test %s via Storybook`, async (story) => {
     await page.goto(`http://localhost:8080/iframe.html?id=eternal-holidaycard--${story}`, {
       waitUntil: 'networkidle2'
