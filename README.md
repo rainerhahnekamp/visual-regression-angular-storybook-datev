@@ -4,6 +4,9 @@ This is the example application of the talk in German language: "Visuelle
 Regressionstest in StoryBook". It was held at the DATEV Coding Festival on 29.
 July 2021.
 
+Slides are available
+on: https://speakerdeck.com/rainerhahnekamp/visuelle-regressionstest-mit-storybook
+
 ---
 
 In this application, we visually test components via a technique called visual
